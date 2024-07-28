@@ -1,0 +1,5 @@
+{
+    "include": ["boilersetup"],
+    "exclude": ["tests"],
+    "reportMissingTypeStubs": true
+}

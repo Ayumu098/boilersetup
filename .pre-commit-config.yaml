@@ -1,0 +1,56 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+
+  - repo: local
+    hooks:
+      - id: ruff
+        name: Ruff
+        entry: poetry run ruff check
+        language: system
+        files: \.py$
+        stages: [commit]
+
+      - id: black
+        name: Black
+        entry: poetry run black --check .
+        language: system
+        files: \.py$
+        stages: [commit]
+
+      - id: isort
+        name: Isort
+        entry: poetry run isort --check-only .
+        language: system
+        stages: [commit]
+
+      - id: pytest
+        name: Pytest
+        entry: poetry run pytest
+        language: system
+        files: \.py$
+        stages: [commit]
+
+      - id: pyright
+        name: Pyright
+        entry: poetry run pyright
+        language: system
+        files: \.py$
+        stages: [commit]
+
+      - id: bandit
+        name: Bandit
+        entry: poetry run bandit
+        args: ["-c", "bandit.yaml"]
+        language: system
+        files: \.py$
+        stages: [commit]
+
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v3.28.0
+    hooks:
+      - id: commitizen
