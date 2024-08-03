@@ -1,3 +1,9 @@
+## 0.3.0 (2024-08-03)
+
+### BREAKING CHANGE
+
+- Changes GitHub Action Workflow versions and configurations
+
 ## 0.2.0 (2024-08-03)
 
 ### Fix
