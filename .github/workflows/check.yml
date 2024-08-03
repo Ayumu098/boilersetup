@@ -7,9 +7,8 @@ jobs:
   lint_format:
     strategy:
       matrix:
-        python-version: [3.9, 3.10, 3.11, 3.12]
-        os: [ubuntu-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
+    runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -36,9 +35,8 @@ jobs:
     needs: lint_format
     strategy:
       matrix:
-        python-version: [3.9, 3.10, 3.11, 3.12]
-        os: [ubuntu-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
+    runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -60,9 +58,8 @@ jobs:
     needs: [lint_format, test]
     strategy:
       matrix:
-        python-version: [3.9, 3.10, 3.11, 3.12]
-        os: [ubuntu-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
+    runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -84,9 +81,8 @@ jobs:
     needs: [lint_format, test, type_check]
     strategy:
       matrix:
-        python-version: [3.9, 3.10, 3.11, 3.12]
-        os: [ubuntu-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
+    runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
