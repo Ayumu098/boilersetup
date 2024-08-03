@@ -55,10 +55,11 @@ jobs:
       - name: Build documentation
         run: poetry run mkdocs build
 
-      - name: Deploy documentation
-        env:
-          GH_PAT: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-        run: |
-          git config --global user.email "actions@github.com"
-          git config --global user.name "GitHub Actions"
-          poetry run mkdocs gh-deploy --force --remote-name origin --remote-branch gh-pages --message "Deploy docs" --token $PERSONAL_ACCESS_TOKEN
+      - name: Push doc to Github Page
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./site
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"
