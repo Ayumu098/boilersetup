@@ -1,3 +1,9 @@
+## 0.4.3 (2024-08-03)
+
+### Fix
+
+- **workflow-action**: add condition on bump workflow action
+
 ## 0.4.2 (2024-08-03)
 
 ### Fix
