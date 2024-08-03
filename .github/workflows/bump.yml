@@ -7,9 +7,11 @@ on:
 
 jobs:
   bump-version:
-    if: "!startsWith(github.event.head_commit.message, 'bump:')"
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     name: "Bump version and create changelog with commitizen"
+    if: "!startsWith(github.event.head_commit.message, 'bump:')"
     steps:
       - name: Check out
         uses: actions/checkout@v4
@@ -25,5 +27,5 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ env.REVISION }}
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           bodyFile: "body.md"
-          skipIfReleaseExists: true
