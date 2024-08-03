@@ -1,3 +1,11 @@
+## 0.4.1 (2024-08-03)
+
+### Fix
+
+- **workflow-bump**: fully use personal access token for all tokens
+- **workflow-bump**: use personal access token for bump and changelog
+- **workflow-bump**: change implementation of bump action
+
 ## 0.4.0 (2024-08-03)
 
 ### BREAKING CHANGE
