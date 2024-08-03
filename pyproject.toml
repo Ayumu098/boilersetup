@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "boilersetup"
-version = "0.4.3"
+version = "0.5.0"
 description = "Template Boilerplate Setup for Python projects"
 authors = ["Stephen Singer <stephen.singer.098@gmail.com>"]
 license = "MIT"
