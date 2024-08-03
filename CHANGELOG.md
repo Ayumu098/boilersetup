@@ -1,3 +1,9 @@
+## 0.8.0 (2024-08-03)
+
+### BREAKING CHANGE
+
+- Updated packaages to latest versions
+
 ## 0.7.0 (2024-08-03)
 
 ### BREAKING CHANGE
