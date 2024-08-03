@@ -1,3 +1,13 @@
+## 0.4.0 (2024-08-03)
+
+### BREAKING CHANGE
+
+- - Changes version bump implementation for possible fix
+
+### Fix
+
+- **workflow-bump**: use manual cz bump and commit to update version and changelog
+
 ## 0.3.0 (2024-08-03)
 
 ### BREAKING CHANGE
