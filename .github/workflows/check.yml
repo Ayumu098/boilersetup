@@ -1,101 +1,47 @@
-name: Check
+name: CI
 
 on:
   pull_request:
+    branches:
+      - main
 
 jobs:
-  lint_format:
-    strategy:
-      matrix:
-        python-version: ["3.9", "3.10", "3.11", "3.12"]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: ${{ matrix.python-version }}
-
-      - name: Install dependencies
-        run: |
-          pip install poetry
-          poetry install
-
-      - name: Lint code
-        run: poetry run ruff check .
-
-      - name: Check formatting
-        run: |
-          poetry run black --check .
-          poetry run isort --check-only .
-
   test:
-    needs: lint_format
+    runs-on: ubuntu-latest
+
     strategy:
       matrix:
         python-version: ["3.9", "3.10", "3.11", "3.12"]
-    runs-on: ubuntu-latest
+
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
 
       - name: Install dependencies
         run: |
+          python -m pip install --upgrade pip
           pip install poetry
           poetry install
 
       - name: Run tests
         run: poetry run pytest
 
-  type_check:
-    needs: [lint_format, test]
-    strategy:
-      matrix:
-        python-version: ["3.9", "3.10", "3.11", "3.12"]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
+      - name: Lint code
+        run: poetry run ruff .
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: ${{ matrix.python-version }}
+      - name: Format code
+        run: poetry run black --check .
 
-      - name: Install dependencies
-        run: |
-          pip install poetry
-          poetry install
+      - name: Sort imports
+        run: poetry run isort --check-only .
 
       - name: Type check
         run: poetry run pyright
 
-  security_check:
-    needs: [lint_format, test, type_check]
-    strategy:
-      matrix:
-        python-version: ["3.9", "3.10", "3.11", "3.12"]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: ${{ matrix.python-version }}
-
-      - name: Install dependencies
-        run: |
-          pip install poetry
-          poetry install
-
       - name: Security check
-        run: poetry run bandit -c bandit.yaml .
+        run: poetry run bandit -r .
