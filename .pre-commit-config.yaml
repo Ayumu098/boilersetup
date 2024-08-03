@@ -47,7 +47,7 @@ repos:
       - id: bandit
         name: Bandit
         entry: poetry run bandit
-        args: ["-c", "bandit.yaml"]
+        args: ["-c", "bandit.yaml", "."]
         language: system
         files: \.py$
         stages: [commit]
