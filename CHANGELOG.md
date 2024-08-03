@@ -1,3 +1,9 @@
+## 0.4.2 (2024-08-03)
+
+### Fix
+
+- **workflow-bump**: use personal access token for release
+
 ## 0.4.1 (2024-08-03)
 
 ### Fix
