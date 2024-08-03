@@ -1,7 +1,6 @@
 name: Check
 
 on:
-  push:
   pull_request:
 
 jobs:
@@ -37,4 +36,4 @@ jobs:
 
       - name: Security check
         run: |
-          poetry run bandit -c bandit.yaml
+          poetry run bandit -c bandit.yaml .
