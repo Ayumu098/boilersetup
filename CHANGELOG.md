@@ -1,3 +1,9 @@
+## 0.7.0 (2024-08-03)
+
+### BREAKING CHANGE
+
+- - Changed matrix test for checks
+
 ## 0.6.0 (2024-08-03)
 
 ## 0.5.0 (2024-08-03)
