@@ -44,4 +44,4 @@ jobs:
         run: poetry run pyright
 
       - name: Security check
-        run: poetry run bandit -c bandit.yaml .
+        run: poetry run bandit -r .
