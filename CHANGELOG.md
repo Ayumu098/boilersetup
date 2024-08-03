@@ -1,3 +1,11 @@
+## 0.9.0 (2024-08-03)
+
+### BREAKING CHANGE
+
+- Change GitHub Workflow Action job name
+- Change testing configuration
+- Change in check implementation
+
 ## 0.8.0 (2024-08-03)
 
 ### BREAKING CHANGE
