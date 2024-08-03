@@ -6,12 +6,12 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out repository
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.10'
 
@@ -27,13 +27,10 @@ jobs:
           poetry run isort --check-only .
 
       - name: Run tests
-        run: |
-          poetry run pytest
+        run: poetry run pytest
 
       - name: Type check
-        run: |
-          poetry run pyright
+        run: poetry run pyright
 
       - name: Security check
-        run: |
-          poetry run bandit -c bandit.yaml .
+        run: poetry run bandit -c bandit.yaml .
