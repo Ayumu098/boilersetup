@@ -1,3 +1,19 @@
+## 0.10.0 (2024-08-06)
+
+### BREAKING CHANGE
+
+- Change GitHub Workflow Action job name
+- Change testing configuration
+- Change in check implementation
+
+### Feat
+
+- **coverage**: add coverage and codecov to ci workflow
+
+### Fix
+
+- **pyproject.toml**: force bump version to fix workflow checks
+
 ## 0.8.0 (2024-08-03)
 
 ### BREAKING CHANGE
