@@ -1,5 +1,4 @@
 ## 0.10.0 (2024-08-06)
-
 ### BREAKING CHANGE
 
 - Change GitHub Workflow Action job name
