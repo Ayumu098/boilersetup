@@ -1,9 +1,7 @@
-name: check
+name: Check
 
 on:
   pull_request:
-    branches:
-      - main
 
 jobs:
   check:
@@ -30,6 +28,12 @@ jobs:
 
       - name: Run tests
         run: poetry run pytest
+
+      - name: Generate Report
+        run: poetry run coverage run -m pytest
+
+      - name: Upload Coverage to Codecov
+        uses: codecov/codecov-action@v4
 
       - name: Lint code
         run: poetry run ruff check .
